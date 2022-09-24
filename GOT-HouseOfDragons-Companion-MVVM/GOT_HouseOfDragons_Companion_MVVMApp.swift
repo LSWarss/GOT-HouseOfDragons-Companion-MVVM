@@ -11,7 +11,7 @@ import SwiftUI
 struct GOT_HouseOfDragons_Companion_MVVMApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            CastScreen(viewModel: CastViewModelImpl())
         }
     }
 }

@@ -8,17 +8,25 @@
 
 /* Begin PBXBuildFile section */
 		A00E0FB828DF0CB500ACE984 /* GOT_HouseOfDragons_Companion_MVVMApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00E0FB728DF0CB500ACE984 /* GOT_HouseOfDragons_Companion_MVVMApp.swift */; };
-		A00E0FBA28DF0CB500ACE984 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00E0FB928DF0CB500ACE984 /* ContentView.swift */; };
+		A00E0FBA28DF0CB500ACE984 /* CastScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00E0FB928DF0CB500ACE984 /* CastScreen.swift */; };
 		A00E0FBC28DF0CB600ACE984 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A00E0FBB28DF0CB600ACE984 /* Assets.xcassets */; };
 		A00E0FBF28DF0CB600ACE984 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A00E0FBE28DF0CB600ACE984 /* Preview Assets.xcassets */; };
+		A00E0FC628DF0CF900ACE984 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00E0FC528DF0CF900ACE984 /* Character.swift */; };
+		A00E0FCA28DF10E600ACE984 /* CastViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00E0FC928DF10E600ACE984 /* CastViewModel.swift */; };
+		A00E0FCD28DF117600ACE984 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00E0FCC28DF117600ACE984 /* BaseViewModel.swift */; };
+		A00E0FD028DF12E900ACE984 /* CharactersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00E0FCF28DF12E900ACE984 /* CharactersService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A00E0FB428DF0CB500ACE984 /* GOT-HouseOfDragons-Companion-MVVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GOT-HouseOfDragons-Companion-MVVM.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A00E0FB728DF0CB500ACE984 /* GOT_HouseOfDragons_Companion_MVVMApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GOT_HouseOfDragons_Companion_MVVMApp.swift; sourceTree = "<group>"; };
-		A00E0FB928DF0CB500ACE984 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		A00E0FB928DF0CB500ACE984 /* CastScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastScreen.swift; sourceTree = "<group>"; };
 		A00E0FBB28DF0CB600ACE984 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A00E0FBE28DF0CB600ACE984 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		A00E0FC528DF0CF900ACE984 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
+		A00E0FC928DF10E600ACE984 /* CastViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastViewModel.swift; sourceTree = "<group>"; };
+		A00E0FCC28DF117600ACE984 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
+		A00E0FCF28DF12E900ACE984 /* CharactersService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,10 +59,12 @@
 		A00E0FB628DF0CB500ACE984 /* GOT-HouseOfDragons-Companion-MVVM */ = {
 			isa = PBXGroup;
 			children = (
+				A00E0FCB28DF116900ACE984 /* Helpers */,
+				A00E0FC728DF10B700ACE984 /* Screens */,
 				A00E0FB728DF0CB500ACE984 /* GOT_HouseOfDragons_Companion_MVVMApp.swift */,
-				A00E0FB928DF0CB500ACE984 /* ContentView.swift */,
 				A00E0FBB28DF0CB600ACE984 /* Assets.xcassets */,
 				A00E0FBD28DF0CB600ACE984 /* Preview Content */,
+				A00E0FC528DF0CF900ACE984 /* Character.swift */,
 			);
 			path = "GOT-HouseOfDragons-Companion-MVVM";
 			sourceTree = "<group>";
@@ -65,6 +75,40 @@
 				A00E0FBE28DF0CB600ACE984 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		A00E0FC728DF10B700ACE984 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				A00E0FC828DF10C600ACE984 /* Cast */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		A00E0FC828DF10C600ACE984 /* Cast */ = {
+			isa = PBXGroup;
+			children = (
+				A00E0FCE28DF12DB00ACE984 /* Services */,
+				A00E0FB928DF0CB500ACE984 /* CastScreen.swift */,
+				A00E0FC928DF10E600ACE984 /* CastViewModel.swift */,
+			);
+			path = Cast;
+			sourceTree = "<group>";
+		};
+		A00E0FCB28DF116900ACE984 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				A00E0FCC28DF117600ACE984 /* BaseViewModel.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		A00E0FCE28DF12DB00ACE984 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				A00E0FCF28DF12E900ACE984 /* CharactersService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,7 +181,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A00E0FBA28DF0CB500ACE984 /* ContentView.swift in Sources */,
+				A00E0FC628DF0CF900ACE984 /* Character.swift in Sources */,
+				A00E0FD028DF12E900ACE984 /* CharactersService.swift in Sources */,
+				A00E0FCD28DF117600ACE984 /* BaseViewModel.swift in Sources */,
+				A00E0FCA28DF10E600ACE984 /* CastViewModel.swift in Sources */,
+				A00E0FBA28DF0CB500ACE984 /* CastScreen.swift in Sources */,
 				A00E0FB828DF0CB500ACE984 /* GOT_HouseOfDragons_Companion_MVVMApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
