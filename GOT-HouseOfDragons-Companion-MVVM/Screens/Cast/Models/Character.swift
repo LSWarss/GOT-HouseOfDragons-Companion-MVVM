@@ -14,16 +14,16 @@ struct Character: Codable, Identifiable {
     let image: String
     var isDead = false
     
-    enum Role: Codable {
-        case king
-        case princess
-        case heir
-        case handToKing
-        case queen
-        case headOfHouse
-        case kingsguard
-        case knight
-        case lord
+    enum Role: String, Codable {
+        case king = "👑"
+        case princess = "👸🏼"
+        case heir = "👶🏻"
+        case handToKing = "✊🏻"
+        case queen = "🫅🏼"
+        case headOfHouse = "🏰"
+        case kingsguard = "💂🏻‍♀️"
+        case knight = "🤺"
+        case lord = "🗡"
     }
 }
 
