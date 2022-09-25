@@ -11,16 +11,16 @@ protocol CastViewModel: BaseViewModel {
     func getCharacters() async
     
     var presentingCharacterDetails: Bool { get set }
-    var selectedCharacter: Character? { get set }
+    var selectedCharacter: CharacterState? { get set }
 }
 
 final class CastViewModelImpl: CastViewModel, ObservableObject {
     @Published var apiErrorDescription: String?
     @Published var apiError = false
     @Published var isLoading = false
-    @Published var cast: [Character] = []
+    @Published var cast: [CharacterState] = []
     @Published var presentingCharacterDetails = false
-    @Published var selectedCharacter: Character?
+    @Published var selectedCharacter: CharacterState?
     
     var defaultErrorDescription: String = "Something went wrong"
     let service: CharactersService

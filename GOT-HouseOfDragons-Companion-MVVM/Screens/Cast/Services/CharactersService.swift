@@ -12,21 +12,21 @@ enum CharactersError: Error {
 }
 
 protocol CharactersService {
-    func getCharacters() async throws -> [Character]
-    func getCharacter(with id: String) async throws -> Character
+    func getCharacters() async throws -> [CharacterState]
+    func getCharacter(with id: String) async throws -> CharacterState
 }
 
 struct CharactersServiceImpl: CharactersService {
     
-    func getCharacters() async throws -> [Character] {
+    func getCharacters() async throws -> [CharacterState] {
         try await Task.sleep(nanoseconds: 1_000_000_000)
-        return Character.fullCast
+        return CharacterState.fullCast
     }
     
-    func getCharacter(with id: String) async throws -> Character {
+    func getCharacter(with id: String) async throws -> CharacterState {
         try await Task.sleep(nanoseconds: 1_000_000_000)
         
-        guard let character = Character.fullCast.first(where: { $0.id == id }) else {
+        guard let character = CharacterState.fullCast.first(where: { $0.id == id }) else {
             throw CharactersError.notFound
         }
         

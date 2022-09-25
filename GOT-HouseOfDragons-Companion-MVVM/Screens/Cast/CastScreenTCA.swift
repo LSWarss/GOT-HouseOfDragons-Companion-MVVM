@@ -14,29 +14,17 @@ struct CastScreenTCA: View {
     var body: some View {
         // A view helper that transforms a Store into a ViewStore so that its state can be observed by a view builder.
         WithViewStore(store) { viewStore in
-            LazyVStack(alignment: .leading) {
-                ForEach(viewStore.cast) { character in
-                    HStack {
-                        buildCharacterImage(for: character.image)
-                        Text(character.name)
-                            .strikethrough(character.isDead,
-                                           pattern: .solid,
-                                           color: .red)
-                        
-                        Spacer()
-                        
-                        Button {
-                        
-                        } label: {
-                            Text("☠️")
-                                .font(.title)
+            ZStack {
+                if viewStore.state.isLoading {
+                    ProgressView()
+                } else {
+                    ScrollView {
+                        LazyVStack(alignment: .leading) {
+                            ForEachStore(self.store.scope(state: \.cast, action: CastAction.character(id:action:))) {
+                                CharacterViewTCA(store: $0)
+                            }
                         }
                     }
-                    .padding(4)
-                    .background(.gray)
-                    .cornerRadius(10)
-                    .padding(.vertical, 4)
-                    .padding(.horizontal, 16)
                 }
             }
             .onAppear {
@@ -45,21 +33,6 @@ struct CastScreenTCA: View {
         }
     }
     
-    @ViewBuilder private func buildCharacterImage(for url: String) -> some View {
-        AsyncImage(url: URL(string: url)) { phase in
-            if let image = phase.image {
-                image
-                    .resizable()
-                    .scaledToFit()
-                    .frame(maxWidth: 100, maxHeight: 100)
-            } else if phase.error != nil {
-                Color.red // Indicates an error.
-            } else {
-                ProgressView()
-                    .frame(maxWidth: 100, maxHeight: 100)
-            }
-        }
-    }
 }
 
 struct CastScreenTCA_Previews: PreviewProvider {
