@@ -8,6 +8,8 @@
 import Foundation
 import ComposableArchitecture
 
+typealias CharacterStore = Store<CharacterState, CharacterAction>
+
 struct CharacterState: Codable, Identifiable, Equatable {
     let id: String
     let name: String

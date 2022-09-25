@@ -20,8 +20,11 @@ struct CastScreenTCA: View {
                 } else {
                     ScrollView {
                         LazyVStack(alignment: .leading) {
-                            ForEachStore(self.store.scope(state: \.cast, action: CastAction.character(id:action:))) {
-                                CharacterViewTCA(store: $0)
+                            ForEachStore(self.store.scope(state: \.cast, action: CastAction.character(id:action:))) { character in
+                                CharacterViewTCA(store: character)
+                                    .onTapGesture {
+                                        viewStore.send(.showCharacter(character: character))
+                                    }
                             }
                         }
                     }
@@ -29,6 +32,11 @@ struct CastScreenTCA: View {
             }
             .onAppear {
                 viewStore.send(.getCast)
+            }
+            .sheet(isPresented: viewStore.binding(get: { $0.showingCharacterDetails }, send: .dismissCharacterSheet)) {
+                if let store = viewStore.state.selectedCharacter {
+                    CharacterDetailsScreenTCA(store: store)
+                }
             }
         }
     }

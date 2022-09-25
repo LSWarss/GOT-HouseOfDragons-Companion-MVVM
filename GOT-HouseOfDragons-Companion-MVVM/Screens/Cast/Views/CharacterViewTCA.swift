@@ -9,7 +9,7 @@ import SwiftUI
 import ComposableArchitecture
 
 struct CharacterViewTCA: View {
-    let store: Store<CharacterState, CharacterAction>
+    let store: CharacterStore
     
     var body: some View {
         WithViewStore(store) { store in
