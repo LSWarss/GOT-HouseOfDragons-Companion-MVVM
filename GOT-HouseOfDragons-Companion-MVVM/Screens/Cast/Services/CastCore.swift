@@ -19,6 +19,7 @@ enum CastAction: Equatable {
     case getCast
     case handleGetCastResponse(TaskResult<[CharacterState]>)
     case character(id: CharacterState.ID, action: CharacterAction)
+    case sortKilledCharacters
 }
 
 // Same as middlewares in other redux like
@@ -54,8 +55,14 @@ let castReducer = Reducer<CastState, CastAction, CastEnvironment>.combine(
         state.apiError = true
         state.apiErrorDescription = error.localizedDescription
         return .none
-    case .character(id: let id, action: .characterKilled):
+    case .sortKilledCharacters:
+        state.cast.sort { $1.isDead && !$0.isDead }
         return .none
+    case .character(id: _, action: .characterKilled):
+        return .task {
+            try await Task.sleep(nanoseconds: 1_000_000_000)
+            return .sortKilledCharacters
+        }
+        .animation(.default)
     }
-}
-)
+})
