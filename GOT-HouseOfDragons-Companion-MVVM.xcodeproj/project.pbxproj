@@ -17,6 +17,8 @@
 		A00E0FD028DF12E900ACE984 /* CharactersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00E0FCF28DF12E900ACE984 /* CharactersService.swift */; };
 		A00E0FD928DF1DB400ACE984 /* CharacterDetailsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00E0FD828DF1DB400ACE984 /* CharacterDetailsScreen.swift */; };
 		A00E0FDB28DF1DC400ACE984 /* CharacterDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00E0FDA28DF1DC400ACE984 /* CharacterDetailsViewModel.swift */; };
+		A00E0FFB28E0702A00ACE984 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = A00E0FFA28E0702A00ACE984 /* ComposableArchitecture */; };
+		A00E0FFD28E0723400ACE984 /* CastCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00E0FFC28E0723400ACE984 /* CastCore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +33,7 @@
 		A00E0FCF28DF12E900ACE984 /* CharactersService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersService.swift; sourceTree = "<group>"; };
 		A00E0FD828DF1DB400ACE984 /* CharacterDetailsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailsScreen.swift; sourceTree = "<group>"; };
 		A00E0FDA28DF1DC400ACE984 /* CharacterDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailsViewModel.swift; sourceTree = "<group>"; };
+		A00E0FFC28E0723400ACE984 /* CastCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastCore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A00E0FFB28E0702A00ACE984 /* ComposableArchitecture in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				A00E0FCF28DF12E900ACE984 /* CharactersService.swift */,
+				A00E0FFC28E0723400ACE984 /* CastCore.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -149,6 +154,9 @@
 			dependencies = (
 			);
 			name = "GOT-HouseOfDragons-Companion-MVVM";
+			packageProductDependencies = (
+				A00E0FFA28E0702A00ACE984 /* ComposableArchitecture */,
+			);
 			productName = "GOT-HouseOfDragons-Companion-MVVM";
 			productReference = A00E0FB428DF0CB500ACE984 /* GOT-HouseOfDragons-Companion-MVVM.app */;
 			productType = "com.apple.product-type.application";
@@ -177,6 +185,9 @@
 				Base,
 			);
 			mainGroup = A00E0FAB28DF0CB500ACE984;
+			packageReferences = (
+				A00E0FF928E0702A00ACE984 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+			);
 			productRefGroup = A00E0FB528DF0CB500ACE984 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -208,6 +219,7 @@
 				A00E0FD028DF12E900ACE984 /* CharactersService.swift in Sources */,
 				A00E0FCD28DF117600ACE984 /* BaseViewModel.swift in Sources */,
 				A00E0FCA28DF10E600ACE984 /* CastViewModel.swift in Sources */,
+				A00E0FFD28E0723400ACE984 /* CastCore.swift in Sources */,
 				A00E0FBA28DF0CB500ACE984 /* CastScreen.swift in Sources */,
 				A00E0FB828DF0CB500ACE984 /* GOT_HouseOfDragons_Companion_MVVMApp.swift in Sources */,
 				A00E0FD928DF1DB400ACE984 /* CharacterDetailsScreen.swift in Sources */,
@@ -411,6 +423,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A00E0FF928E0702A00ACE984 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A00E0FFA28E0702A00ACE984 /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A00E0FF928E0702A00ACE984 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A00E0FAC28DF0CB500ACE984 /* Project object */;
 }
