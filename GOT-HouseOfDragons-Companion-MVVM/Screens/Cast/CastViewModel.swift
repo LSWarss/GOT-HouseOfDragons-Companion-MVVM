@@ -7,17 +7,23 @@
 
 import Foundation
 
-protocol CastViewModel: ObservableObject, BaseViewModel {
+protocol CastViewModel: BaseViewModel {
     func getCharacters() async
+    
+    var presentingCharacterDetails: Bool { get set }
+    var selectedCharacter: Character? { get set }
 }
 
-final class CastViewModelImpl: CastViewModel {
+final class CastViewModelImpl: CastViewModel, ObservableObject {
     @Published var apiErrorDescription: String?
     @Published var apiError = false
     @Published var isLoading = false
     @Published var cast: [Character] = []
+    @Published var presentingCharacterDetails = false
+    @Published var selectedCharacter: Character?
+    
     var defaultErrorDescription: String = "Something went wrong"
-    private let service: CharactersService
+    let service: CharactersService
     
     init(service: CharactersService = CharactersServiceImpl()) {
         self.service = service
