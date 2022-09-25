@@ -9,7 +9,7 @@ import Foundation
 import ComposableArchitecture
 
 struct CastState: Equatable {
-    var cast: [Character]
+    var cast: [Character] = []
     var apiError = false
     var isLoading = false
     var apiErrorDescription: String?
@@ -23,6 +23,10 @@ enum CastAction: Equatable {
 // Same as middlewares in other redux like
 struct CastEnvironment {
     let charactersService: CharactersService
+    
+    init(charactersService: CharactersService = CharactersServiceImpl()) {
+        self.charactersService = charactersService
+    }
 }
 
 let castReducer = Reducer<CastState, CastAction, CastEnvironment> { state, action, env in

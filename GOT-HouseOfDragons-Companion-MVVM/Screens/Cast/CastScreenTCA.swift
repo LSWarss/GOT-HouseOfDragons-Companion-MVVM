@@ -1,19 +1,21 @@
 //
-//  ContentView.swift
+//  CastScreenTCA.swift
 //  GOT-HouseOfDragons-Companion-MVVM
 //
-//  Created by Łukasz Stachnik on 24/09/2022.
+//  Created by Łukasz Stachnik on 25/09/2022.
 //
 
 import SwiftUI
+import ComposableArchitecture
 
-struct CastScreen: View {
-    @StateObject var viewModel: CastViewModelImpl
+struct CastScreenTCA: View {
+    let store: Store<CastState,CastAction>
     
     var body: some View {
-        ScrollView {
+        // A view helper that transforms a Store into a ViewStore so that its state can be observed by a view builder.
+        WithViewStore(store) { viewStore in
             LazyVStack(alignment: .leading) {
-                ForEach(viewModel.cast) { character in
+                ForEach(viewStore.cast) { character in
                     HStack {
                         buildCharacterImage(for: character.image)
                         Text(character.name)
@@ -24,9 +26,7 @@ struct CastScreen: View {
                         Spacer()
                         
                         Button {
-                            withAnimation {
-                                viewModel.killCharacter(with: character.id)
-                            }
+                        
                         } label: {
                             Text("☠️")
                                 .font(.title)
@@ -35,21 +35,13 @@ struct CastScreen: View {
                     .padding(4)
                     .background(.gray)
                     .cornerRadius(10)
-                    .onTapGesture {
-                        viewModel.selectedCharacter = character
-                        viewModel.presentingCharacterDetails = true
-                    }
                     .padding(.vertical, 4)
                     .padding(.horizontal, 16)
                 }
             }
-        }
-        .task {
-            await viewModel.getCharacters()
-        }
-        .sheet(isPresented: $viewModel.presentingCharacterDetails) {
-            CharacterDetailsScreen(viewModel: CharacterDetailsViewModelImpl(service: viewModel.service,
-                                                                            charactersViewModel: viewModel))
+            .onAppear {
+                viewStore.send(.getCast)
+            }
         }
     }
     
@@ -70,8 +62,10 @@ struct CastScreen: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct CastScreenTCA_Previews: PreviewProvider {
     static var previews: some View {
-        CastScreen(viewModel: CastViewModelImpl())
+        CastScreenTCA(store: Store(initialState: CastState(),
+                                   reducer: castReducer,
+                                   environment: CastEnvironment()))
     }
 }

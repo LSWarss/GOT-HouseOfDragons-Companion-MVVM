@@ -19,6 +19,7 @@
 		A00E0FDB28DF1DC400ACE984 /* CharacterDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00E0FDA28DF1DC400ACE984 /* CharacterDetailsViewModel.swift */; };
 		A00E0FFB28E0702A00ACE984 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = A00E0FFA28E0702A00ACE984 /* ComposableArchitecture */; };
 		A00E0FFD28E0723400ACE984 /* CastCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00E0FFC28E0723400ACE984 /* CastCore.swift */; };
+		A00E0FFF28E0795E00ACE984 /* CastScreenTCA.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00E0FFE28E0795E00ACE984 /* CastScreenTCA.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		A00E0FD828DF1DB400ACE984 /* CharacterDetailsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailsScreen.swift; sourceTree = "<group>"; };
 		A00E0FDA28DF1DC400ACE984 /* CharacterDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailsViewModel.swift; sourceTree = "<group>"; };
 		A00E0FFC28E0723400ACE984 /* CastCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastCore.swift; sourceTree = "<group>"; };
+		A00E0FFE28E0795E00ACE984 /* CastScreenTCA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastScreenTCA.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 				A00E0FD728DF1D9F00ACE984 /* Details */,
 				A00E0FCE28DF12DB00ACE984 /* Services */,
 				A00E0FB928DF0CB500ACE984 /* CastScreen.swift */,
+				A00E0FFE28E0795E00ACE984 /* CastScreenTCA.swift */,
 				A00E0FC928DF10E600ACE984 /* CastViewModel.swift */,
 			);
 			path = Cast;
@@ -217,6 +220,7 @@
 				A00E0FC628DF0CF900ACE984 /* Character.swift in Sources */,
 				A00E0FDB28DF1DC400ACE984 /* CharacterDetailsViewModel.swift in Sources */,
 				A00E0FD028DF12E900ACE984 /* CharactersService.swift in Sources */,
+				A00E0FFF28E0795E00ACE984 /* CastScreenTCA.swift in Sources */,
 				A00E0FCD28DF117600ACE984 /* BaseViewModel.swift in Sources */,
 				A00E0FCA28DF10E600ACE984 /* CastViewModel.swift in Sources */,
 				A00E0FFD28E0723400ACE984 /* CastCore.swift in Sources */,

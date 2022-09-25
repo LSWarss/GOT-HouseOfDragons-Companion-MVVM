@@ -6,12 +6,15 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
 
 @main
 struct GOT_HouseOfDragons_Companion_MVVMApp: App {
     var body: some Scene {
         WindowGroup {
-            CastScreen(viewModel: CastViewModelImpl())
+            CastScreenTCA(store: Store(initialState: CastState(),
+                                       reducer: castReducer,
+                                       environment: CastEnvironment()))
         }
     }
 }
